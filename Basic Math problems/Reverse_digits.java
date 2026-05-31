@@ -42,12 +42,20 @@ Space Complexity: O(1)
 public class Reverse_digits {
     public static int reverse_digit(int n){
         int reversed = 0;
+        int sign = -1;
+        if (n<0){
+            sign = -1;
+        }
+        else{
+            sign = 1;
+        }
+        n = Math.abs(n); // if not done, it will give wrong answer for negative numbers
         while (n > 0) {
             int lastDigit = n % 10;
             reversed = reversed * 10 + lastDigit;
             n = n / 10;
         }
-        return reversed;
+        return sign * reversed;
     }
     public static void main(String[] args){
         int n = 12345;

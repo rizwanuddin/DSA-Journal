@@ -39,13 +39,18 @@ Time Complexity: O(log n)
 Space Complexity: O(1)
 """
 def reverse_digits(n):
+    sign = -1 if n < 0 else 1
+    n = abs(n)
     reversed_number = 0
-    while n>0:
-        Last_digit = n % 10
-        reversed_number = reversed_number * 10 + Last_digit
+    while n > 0:
+        last_digit = n % 10
+        reversed_number = reversed_number * 10 + last_digit
         n = n // 10
-        return reversed_number
+    return sign * reversed_number
+
 # Example usage
 number = 123
 print(reverse_digits(number))  # Output: 321
 
+number = -123
+print(reverse_digits(number))  # Output: -321
