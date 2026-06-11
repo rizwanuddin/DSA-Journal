@@ -4,7 +4,7 @@ public class count_bignumbers {
         HashMap<Integer, Integer> mp = new HashMap<>();
         for(int i = 0; i < arr.length; i++){
             int key = arr[i];
-            int freq = 0;
+            int freq = 0; //or can use mp.put(num, mp.getOrDefault(num, 0) + 1);
             if (mp.containsKey(key)){
                 freq = mp.get(key);
             }
