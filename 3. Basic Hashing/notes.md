@@ -7,7 +7,24 @@
 
 In that case, we use a HashMap because it stores only the elements that actually appear. HashMap is more flexible, but it has extra overhead due to hashing, buckets, and collision handling.
 -- TIME COMPLEXITY : For hashing-based frequency counting, first I precompute the frequencies by iterating through the array once. That takes O(n) time. Then for each query, I directly access the frequency using either an array index or a HashMap lookup. Array access is O(1), and HashMap lookup is O(1) on average. So if there are q queries, answering all queries takes O(q). Therefore the total average time complexity is O(n + q). The space complexity is O(maxValue + 1) for array hashing and O(k) for HashMap, where k is the number of unique elements.
+ Hash array:
+number itself is the index.
+No buckets/collision.
+Fastest, but only small range.
 
+HashSet:
+key -> hash -> bucket.
+Stores only the key.
+Use for existence.
+
+HashMap:
+key -> hash -> bucket.
+Stores key + value.
+Use for frequency/counts or mapping data.
+
+Collision:
+different keys end up in the same bucket.
+Handled internally by HashSet/HashMap.
 # Hashing Memory Limit Notes
 
 ## What is array hashing?
