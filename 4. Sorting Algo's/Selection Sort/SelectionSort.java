@@ -30,7 +30,7 @@ import java.util.Arrays;
 
 public class SelectionSortExample {
 
-    public static int[] selectionSort(int[] arr) {
+    public int[] selectionSort(int[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
@@ -52,9 +52,13 @@ public class SelectionSortExample {
     public static void main(String[] args) {
         int[] arr = {64, 25, 12, 22, 11};
 
-        int[] sortedArr = selectionSort(arr);
+        --int[] sortedArr = selectionSort(arr);-- only this line if there was static, we could directly call it in our main
+        
+        SelectionSorter sorter = new SelectionSorter(); --these two lines required if theres NO static, gotta make a object--
+        int[] sortedArr = sorter.selectionSort(arr);
 
         System.out.println(Arrays.toString(sortedArr));
     }
 }
+Important thing to note, here arr and sortedArr prints the same sorted array
 */

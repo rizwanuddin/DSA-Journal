@@ -199,4 +199,4 @@ else to go — it's automatically the largest. No need for a final pass.
 
 ## One-liner to remember
 
-> Selection sort = find minimum in unsorted section → swap to front → repeat. Always O(n²), always N-1 swaps, never stable.
+> Selection sort = find minimum in unsorted section → swap to front → repeat. Always O(n²), always N-1 swaps, never stable.  
