@@ -1,6 +1,13 @@
-def selectionsort(arr):
+def maxselectionsort(arr):
 
-    l = len(arr) #5
+
+
+
+
+
+    pass
+def minselectionsort(arr):
+    l = len(arr) 
     for i in range(l - 1):
         minidx = i
         for curr in range(i + 1, l):
@@ -14,8 +21,9 @@ def selectionsort(arr):
         arr[minidx] = temp
         """
 
+
 arr = [9,5,2,8,1]
-selectionsort(arr)
+minselectionsort(arr)
 print(arr)  
 """
 class SelectionSort:
