@@ -161,3 +161,79 @@ If an interviewer asks "can you optimize it?" — that's the cue to switch from 
 - Nearly-sorted data (best case O(n))
 - As the base case inside hybrid sorts — Python's built-in `sort()` (Timsort) uses insertion sort internally for small runs
 - When you need a **stable**, **in-place** sort with low overhead
+Insertion Sort (Swap Version)
+
+Initial Array:
+[7, 3, 5, 1]
+
+--------------------------------------------------
+
+i = 1
+j = 1
+
+Compare arr[0] and arr[1]
+7 > 3 ? Yes
+
+Swap(7, 3)
+
+[3, 7, 5, 1]
+
+j = 0
+Stop
+
+--------------------------------------------------
+
+i = 2
+j = 2
+
+Compare arr[1] and arr[2]
+7 > 5 ? Yes
+
+Swap(7, 5)
+
+[3, 5, 7, 1]
+
+j = 1
+
+Compare arr[0] and arr[1]
+3 > 5 ? No
+
+Stop
+
+--------------------------------------------------
+
+i = 3
+j = 3
+
+Compare arr[2] and arr[3]
+7 > 1 ? Yes
+
+Swap(7, 1)
+
+[3, 5, 1, 7]
+
+j = 2
+
+Compare arr[1] and arr[2]
+5 > 1 ? Yes
+
+Swap(5, 1)
+
+[3, 1, 5, 7]
+
+j = 1
+
+Compare arr[0] and arr[1]
+3 > 1 ? Yes
+
+Swap(3, 1)
+
+[1, 3, 5, 7]
+
+j = 0
+Stop
+
+--------------------------------------------------
+
+Final Sorted Array:
+[1, 3, 5, 7]
