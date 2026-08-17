@@ -97,7 +97,7 @@ class Solution:
 
                 if currentSum == k:
                     maxLength = max(maxLength, endIndex - startIndex + 1)
-
+  
         return maxLength
 
 if __name__ == "__main__":
@@ -110,3 +110,74 @@ if __name__ == "__main__":
     length = solution.longestSubarray(nums, k)
     
     print("The length of the longest subarray is:", length)
+
+"""SECOND APPROACH - OPTIMAL - TWO POINTERS/SLIDING WINDOW
+I'm solving this using a sliding-window approach with two pointers, left and right.
+
+These pointers represent the current subarray I'm considering.
+
+I also maintain a running sum so I don't need to calculate the sum of the entire subarray repeatedly.
+
+I expand the window by moving right forward and adding the new element to the running sum.
+
+If the sum becomes greater than k, I shrink the window from the left by subtracting nums[left] and moving left forward.
+
+Whenever the current sum equals k, I've found a valid subarray, so I calculate its length using right - left + 1 and update maxLen.
+
+I continue this until the right pointer reaches the end of the array.
+The time complexity is O(n) because each element is visited at most twice: once when the right pointer includes it and once when the left pointer removes it.”
+
+Time: O(n)
+
+Then:
+
+“The space complexity is O(1) because I'm only using a few variables and not creating another data structure that grows with the input
+TIME COMPLEXITY - O(n)
+SPACE COMPLEXITY - O(1)
+"""
+class Solution:
+    # Function to find the length of longest subarray having sum k
+    def longestSubarray(self, nums, k):
+        n = len(nums)
+        
+        # To store the maximum length of the subarray
+        maxLen = 0
+        
+        # Pointers to mark the start and end of window
+        left = 0
+        right = 0
+        
+        # To store the sum of elements in the window
+        sum = nums[0]
+        
+        # Traverse all the elements
+        while right < n:
+            
+            # If the sum exceeds K, shrink the window
+            while left <= right and sum > k:
+                sum -= nums[left]
+                left += 1
+            
+            # Store the maximum length
+            if sum == k:
+                maxLen = max(maxLen, right - left + 1)
+            
+            right += 1
+            if right < n:
+                sum += nums[right]
+        
+        return maxLen
+
+
+nums = [10, 5, 2, 7, 1, 9]
+k = 15
+
+# Creating an object of Solution class
+sol = Solution()
+
+# Function call to find the length
+# of longest subarray having sum k
+ans = sol.longestSubarray(nums, k)
+
+print(f"The length of longest subarray having sum k is: {ans}")
+
