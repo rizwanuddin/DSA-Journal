@@ -20,6 +20,7 @@ def find_max_consecutive_ones(arr):
         # If current element is 0, reset count
         else:
             count = 0
+            
 
         # Update the maximum count
         max_count = max(max_count, count)
