@@ -1,3 +1,18 @@
+"""
+Problem Statement: Given two sorted arrays, arr1, and arr2 of size n and m. Find the union of 
+two sorted arrays.
+The union of two arrays can be defined as the common and distinct elements in the two arrays.
+
+’m using a two-pointer approach because both arrays are already sorted. I keep i at the start of 
+arr1 and j at the start of arr2. I compare arr1[i] and arr2[j]. If the value in arr1 is smaller, 
+I add it to the result and move i forward. If the value in arr2 is smaller, I add it and move j 
+forward. If both values are the same, I add it only once and move both pointers forward. Before 
+adding anything, I check Union[-1] != value so I don’t add duplicates. When one array finishes, 
+I add the remaining elements from the other array while still avoiding duplicates. The time 
+complexity is O(n + m) because I go through both arrays once, and the extra space is O(1) if we 
+don’t count the output list; the output itself can take O(n + m) space.
+"""
+
 class Solution:
     # Function to find union of two sorted arrays using two pointers
     def findUnion(self, arr1, arr2, n, m):
@@ -53,3 +68,5 @@ if __name__ == "__main__":
     obj = Solution()
     result = obj.findUnion(arr1, arr2, n, m)
     print("Union of arr1 and arr2 is:", *result)
+
+
