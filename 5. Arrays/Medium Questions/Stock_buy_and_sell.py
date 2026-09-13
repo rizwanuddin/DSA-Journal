@@ -1,4 +1,11 @@
 """
+Stock Buy And Sell
+
+Problem Statement: You are given an array of prices where prices[i] is the price of a given stock on an 
+ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a 
+different day in the future to sell that stock. Return the maximum profit you can achieve from this 
+transaction. If you cannot achieve any profit, return 0.
+
 I’m using a single-pass greedy approach to find the maximum profit from buying and selling a stock once. The main idea is that as I go through 
 the prices, I keep track of the lowest price I’ve seen so far using min_price, because I always want to buy as cheaply as possible. For each 
 price, if it is smaller than min_price, I update min_price because this would be a better day to buy. Otherwise, I calculate the profit I 

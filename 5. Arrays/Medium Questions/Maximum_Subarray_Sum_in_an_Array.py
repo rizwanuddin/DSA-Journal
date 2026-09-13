@@ -1,4 +1,7 @@
 """
+Kadane's Algorithm : Maximum Subarray Sum in an Array
+Problem Statement: Given an integer array nums, find the subarray with the largest sum and return the sum of the elements present in that subarray. 
+
 I’m using Kadane’s Algorithm to find the maximum sum of a contiguous subarray. I maintain two variables: current_sum, which represents the sum of the subarray I’m currently considering, and maximum, which stores the largest subarray sum 
 I’ve found so far. As I go through the array, I add each number to current_sum and then update maximum if this new sum is larger. The key idea is that if current_sum ever becomes negative, there’s no benefit in carrying that negative sum 
 into the next subarray because it would only make any future sum smaller, so I reset current_sum back to 0 and effectively start a new subarray from the next element. I initialize maximum to negative infinity instead of 0 so the algorithm 

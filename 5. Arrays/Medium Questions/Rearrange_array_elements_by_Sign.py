@@ -1,4 +1,10 @@
 """
+Rearrange Array Elements by Sign
+
+Problem Statement: There’s an array ‘A’ of size ‘N’ with an equal number of positive and negative elements.
+ Without altering the relative order of positive and negative elements, you must return an array of 
+ alternately positive and negative values.
+
 I’m using a single-pass greedy approach to find the maximum profit from buying and selling a stock once. The main idea is that as I go through the prices, I keep track of the lowest price 
 I’ve seen so far using min_price, because I always want to buy as cheaply as possible. For each price, if it is smaller than min_price, I update min_price because this would be a better 
 day to buy. Otherwise, I calculate the profit I would make if I sold at the current price using price - min_price, and I compare that with max_profit to keep the best profit I’ve found so 
