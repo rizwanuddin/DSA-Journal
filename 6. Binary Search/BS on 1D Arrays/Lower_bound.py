@@ -3,6 +3,30 @@ Implement Lower Bound
 Problem Statement: Given a sorted array of N integers and an integer x, write a program to find 
 the lower bound of x.
 
+Example 1:
+Input Format: N = 4, arr[] = {1,2,2,3}, x = 2
+Result: 1
+Explanation: Index 1 is the smallest index such that arr[1] >= x.
+
+Example 2:
+Input Format: N = 5, arr[] = {3,5,8,15,19}, x = 9
+Result: 3
+Explanation: Index 3 is the smallest index such that arr[3] >= x.
+---------------------------------
+LOWER BOUND
+→ First index where arr[i] >= x
+→ If >= x: save mid, go LEFT
+→ Else: go RIGHT
+
+UPPER BOUND
+→ First index where arr[i] > x
+→ If > x: save mid, go LEFT
+→ Else: go RIGHT
+
+REMEMBER:
+Lower = >=
+Upper = >
+---------------------------------
 LOWER BOUND — INTERVIEW EXPLANATION
 
 
@@ -84,6 +108,24 @@ Otherwise, arr[mid] is too small, so I'm searching to the right."
 "Some edge cases I would consider are an empty array, x being smaller
 than every element, x being larger than every element, x already existing
 in the array, and the array containing duplicate values."
+EDGE CASES
+
+    1. Empty array
+    → return 0
+
+    2. x smaller than every element
+    → return 0
+
+    3. x larger than every element
+    → return n (len(arr))
+
+    4. x already exists
+    Lower Bound → first index >= x
+    Upper Bound → first index > x
+
+    5. Duplicates
+    Lower Bound → first occurrence of x
+    Upper Bound → index after the last occurrence of x
 
 
 8. COMPLEXITY

@@ -4,6 +4,23 @@ Problem Statement:
 Given an integer array arr of size N, sorted in ascending order (with distinct values), the array
 is rotated at any index which is unknown. Find the minimum element in the array.
 
+Input: arr = [4,5,6,7,0,1,2,3]
+Output: 0
+Explanation: The minimum element in the array is 0.
+
+Input : arr = [3,4,5,1,2]
+Output: 1
+Explanation : The minimum element in the array is 1.
+
+NOTE:
+while low <= high
+→ Stop when pointers CROSS.
+→ Use when checking/searching for a target.
+
+while low < high
+→ Stop when pointers MEET.
+→ Use when narrowing down to one final answer.
+
 FIND MINIMUM IN ROTATED SORTED ARRAY — INTERVIEW EXPLANATION
 
 

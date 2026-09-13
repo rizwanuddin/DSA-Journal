@@ -9,6 +9,17 @@ remember - floor = largest value <= x
 so you might be thinking by moving right or left we are giving away a hald completely but no we are
 not because the array is sorted !!
 
+Example:
+
+arr = [3, 4, 4, 7, 8, 10]
+x = 5
+
+Floor = 4
+because 4 is the largest value <= 5
+
+Ceil = 7
+because 7 is the smallest value >= 5
+
 FLOOR AND CEIL — INTERVIEW EXPLANATION
 
 
@@ -130,17 +141,6 @@ arr[mid] > x
 → save arr[mid]
 → search LEFT for a smaller ceil
 
-
-Example:
-
-arr = [3, 4, 4, 7, 8, 10]
-x = 5
-
-Floor = 4
-because 4 is the largest value <= 5
-
-Ceil = 7
-because 7 is the smallest value >= 5
 """ 
 class Solution:
     def floor_ceil(self, arr, x):

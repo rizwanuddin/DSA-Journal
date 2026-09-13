@@ -4,6 +4,17 @@ Problem Statement: Given an integer array arr of size N, sorted in ascending ord
 distinct values). Now the array is rotated between 1 to N times which is unknown. Find how many 
 times the array has been rotated.
 
+Example:
+Original:
+[0, 1, 2, 4, 5, 6, 7]
+After 4 rotations:
+[4, 5, 6, 7, 0, 1, 2]
+             ↑
+          minimum
+          index = 4
+Therefore:
+rotations = 4
+
 COUNT ROTATIONS IN A SORTED ROTATED ARRAY — INTERVIEW EXPLANATION
 
 
