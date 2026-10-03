@@ -5,6 +5,23 @@ Problem Statement: Given an integer array nums, sorted in ascending order (with 
  and a target value k. The array is rotated at some pivot point that is unknown. Find the index 
  at which k is present and if k is not present return -1.
 
+ 
+Example:
+arr = [4, 5, 6, 7, 0, 1, 2]
+target = 0
+Step-by-step
+mid = 3 → arr[3] = 7
+left half is [4, 5, 6, 7], right half is [0, 1, 2]
+left half is sorted, but target 0 is not in [4,5,6,7]
+so go right
+new range becomes [4, 6]
+mid = 5 → arr[5] = 1
+target 0 is before 1, so go left
+eventually you reach index 4 and return 4
+Output
+index = 4
+
+
 SEARCH IN ROTATED SORTED ARRAY — INTERVIEW EXPLANATION
 
 
