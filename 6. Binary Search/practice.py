@@ -276,5 +276,3 @@ def upper_bound(self, arr, x):
         
 
 
-
-
