@@ -210,34 +210,43 @@ Before I finish, I'll run my test cases.
   so they spread at the same time.
 """
 from collections import deque
+
 class Solution:
+
     def TimeToRot(self, grid):
-        N = len(grid)
-        M = len(grid[0])
+        N = len(grid)                                          # O(1)
+        M = len(grid[0])                                       # O(1)
         fresh = 0
-        queue = deque()
+        queue = deque()                                          # SPACE O(N*M): worst case all cells rotten at once
         minTime = 0
-        for r in range(N):
+
+        for r in range(N):                                       # TIME O(N*M): scan every cell once
             for c in range(M):
                 if grid[r][c] == 1:
-                    fresh += 1
+                    fresh += 1                                    # O(1)
                 elif grid[r][c] == 2:
-                    queue.append((r,c))
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+                    queue.append((r, c))                          # O(1)
+
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]            # O(1): constant 4 directions
+
         while queue and fresh > 0:
-            size = len(queue)
+            size = len(queue)                                      # O(1): snapshot size for this minute
             for _ in range(size):
-                r, c = queue.popleft()
-                for dr, dc in directions:
+                r, c = queue.popleft()                              # O(1)
+                for dr, dc in directions:                           # O(1): constant 4 checks
                     nr = r + dr
                     nc = c + dc
                     if (0 <= nr < N and 0 <= nc < M and grid[nr][nc] == 1):
-                        queue.append((nr, nc))
-                        grid[nr][nc] = 2
-                        fresh -= 1
-            minTime += 1
+                        queue.append((nr, nc))                       # O(1)
+                        grid[nr][nc] = 2                              # O(1): marks visited by turning rotten
+                        fresh -= 1                                    # O(1)
+            minTime += 1                                             # O(1): one full level = one minute
+
         if fresh > 0:
             return -1
         return minTime
+
+# TOTAL TIME:  O(N*M) [initial scan] + O(N*M) [BFS, each cell enqueued/processed once] = O(N*M)
+# TOTAL SPACE: O(N*M) [queue, worst case every cell is rotten] = O(N*M)
 
             

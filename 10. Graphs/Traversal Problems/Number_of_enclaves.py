@@ -187,32 +187,34 @@ In that case I would use BFS with a queue,
 starting with every border land cell in the queue at once.
 """
 class Solution:
+
     def numberOfEnclaves(self, grid):
-        N = len(grid)
-        M = len(grid[0])
-        visited = set()
-        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        N = len(grid)                                        # O(1)
+        M = len(grid[0])                                     # O(1)
+        visited = set()                                       # SPACE O(N*M): worst case every cell is land
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]        # O(1): always 4 directions
 
         def dfs(r, c):
-            visited.add((r, c))
-            for dr, dc in directions:
+            visited.add((r, c))                                # O(1)
+            for dr, dc in directions:                          # O(1): constant 4 checks
                 nr = r + dr
                 nc = c + dc
-                if (0 <= nr < N and 0 <= nc < M
-                        and grid[nr][nc] == 1
-                        and (nr, nc) not in visited):
+                if (0 <= nr < N and 0 <= nc < M and grid[nr][nc] == "1" and (nr, nc) not in visited):
                     dfs(nr, nc)
 
-        for r in range(N):
+        for r in range(N):                                     # TIME O(N*M): visit each cell once
             for c in range(M):
-                on_border = r == 0 or r == N - 1 or c == 0 or c == M - 1
-                if on_border and grid[r][c] == 1 and (r, c) not in visited:
+                on_border = r == 0 or c == 0 or r == N - 1 or c == M - 1
+                if on_border and grid[r][c] == "1" and (r, c) not in visited:
                     dfs(r, c)
 
         count = 0
-        for r in range(N):
+        for r in range(N):                                     # TIME O(N*M): second full scan
             for c in range(M):
-                if grid[r][c] == 1 and (r, c) not in visited:
+                if grid[r][c] == "1" and (r, c) not in visited:
                     count += 1
 
         return count
+
+# TOTAL TIME:  O(N*M) [border dfs pass] + O(N*M) [count pass] = O(N*M)
+# TOTAL SPACE: O(N*M) [visited] + O(N*M) [recursion stack worst case] = O(N*M)
